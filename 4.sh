@@ -6,7 +6,8 @@ format() {
         	echo "Файл $file не найден" >&2
         	return 1
 	fi
-	sed '/^$/d; /^11_Steve_11 /d' "$file" > sort -u > tmp.txt
+	sed '/^11_Steve_11 /d' "$file"  > tmp1.txt
+	command sort -u tmp1.txt > tmp.txt
 	mv tmp.txt "$file"
 }
 
