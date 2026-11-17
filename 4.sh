@@ -12,7 +12,7 @@ format() {
 
 add() {
 	local DATA="$*"
-	local nickname=$(echo "$DATA" | awk '{print $1}')
+	local nickname=$(echo "$DATA" | cut -d' ' -f1)
 	touch "$BANLIST"
 	sed "/^$nickname /d" "$BANLIST" > tmp.txt
 	mv tmp.txt "$BANLIST"
