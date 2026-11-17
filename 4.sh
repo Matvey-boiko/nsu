@@ -29,10 +29,10 @@ remove() {
 }
 
 sort() {
-	local mode="$1"
+	local key="$1"
 	local file="$2"
 
-	case "$mode" in
+	case "$key" in
 		--name)
 			command sort -k1,1 "$BANLIST" > "$file"
 			;;
@@ -40,7 +40,7 @@ sort() {
 			command sort -t':' -k3,3n -k2,2n -k1,1n "$BANLIST" > "$file"
 			;;
 		*)
-        		echo "Unknown command: $1" >&2
+        		echo "Unknown key: $1" >&2
         		exit 1
         		;;
 	esac
